@@ -1,1 +1,45 @@
 @import "tailwindcss";
+
+.card-glassmorphism{
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 3rem;
+    margin: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.bg-inicio {
+    /* background-image: linear-gradient( to bottom, #000000, #067aab);
+     */
+    background: #43c6ac;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #43c6ac, #191654);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #43c6ac, #191654);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.bg-animated{
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

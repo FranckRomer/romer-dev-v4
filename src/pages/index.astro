@@ -1,17 +1,26 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Dock from "../components/Dock.astro";
 ---
 
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro cambio</title>
+		<title>Romer-Dev</title>
 	</head>
-	<body>
-		<h1 class="text-3xl font-bold underline text-blue-600">Pagina de inicio</h1>
-		<p class="mt-4 text-gray-600">¡Tailwind CSS está funcionando correctamente!</p>
+	<Dock site="Inicio"/>
+	<body class="bg-animated w-screen h-screen">
+		<main class="flex justify-center items-center max-w-8/12 min-h-8/12 m-auto ">
+			<section class="flex justify-center items-center m-auto ">
+				<div class="card-glassmorphism">
+					<h1 class="text-4xl font-bold">Romer-Dev</h1>
+					<p class="text-xl">Desarrollador Web</p>
+				</div>
+			</section>
+		</main>
 	</body>
 </html>
