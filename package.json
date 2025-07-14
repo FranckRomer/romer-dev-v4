@@ -13,6 +13,10 @@
     "astro": "^5.11.0",
     "react": "^19.1.0",
     "react-icons": "^5.5.0",
-    "tailwindcss": "^4.1.11"
+    "tailwindcss": "^4.1.11",
+    "three": "^0.178.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.178.1"
   }
 }
