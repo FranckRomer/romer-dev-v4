@@ -1,7 +1,8 @@
 ---
 import "../styles/global.css";
-import Header from "../components/Header.astro";
 import Dock from "../components/Dock.astro";
+import SeguidorMouse from "../canvas/SeguidorMouse.astro";
+import LineasInfinitas from "../canvas/LineasInfinitas.astro";
 ---
 
 <html lang="es">
@@ -12,130 +13,12 @@ import Dock from "../components/Dock.astro";
 		<meta name="generator" content={Astro.generator} />
 		<title>Romer-Dev</title>
 	</head>
-	<Dock site="Inicio" />
 	<body class="bg-black w-screen h-screen">
+		<Dock site="Inicio" />
+		<!-- <SeguidorMouse /> -->
+		<LineasInfinitas />
 		<main class="flex justify-center items-center max-w-8/12 min-h-8/12 m-auto">
-			<h1 class="text-white text-4xl font-bold">Romer-Dev</h1>
-			<canvas
-				id="canvas"
-				class="absolute top-0 left-0 w-full h-full z-10 text-white"
-				width="1920"
-				height="1080"
-			></canvas>
+			<h1 class="text-white text-4xl font-bold border border-white rounded-lg bg-blur-2xl backdrop-blur-md p-10 z-50">Romer-Dev</h1>
 		</main>
 	</body>
 </html>
-
-<script>
-    // Esperar a que el DOM esté listo
-    document.addEventListener('DOMContentLoaded', async () => {
-        console.log('DOM loaded, initializing particles...');
-        
-        try {
-            const THREE = await import('three');
-            console.log('Three.js loaded successfully');
-            
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.z = 5;
-
-            const canvas = document.getElementById('canvas');
-            console.log('Canvas found:', canvas);
-            
-            const renderer = new THREE.WebGLRenderer({ canvas: canvas as HTMLCanvasElement, alpha: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setClearColor(0x000000, 0);
-
-            // Crear partículas
-            const particleCount = 100;
-            const particles = new THREE.Group();
-
-            for (let i = 0; i < particleCount; i++) {
-                const geometry = new THREE.SphereGeometry(0.02, 8, 8);
-                const material = new THREE.MeshBasicMaterial({ 
-                    color: 0x00ffff,
-                    transparent: true,
-                    opacity: 0.6
-                });
-                const particle = new THREE.Mesh(geometry, material);
-                
-                particle.position.set(
-                    (Math.random() - 0.5) * 10,
-                    (Math.random() - 0.5) * 10,
-                    (Math.random() - 0.5) * 10
-                );
-                
-                particles.add(particle);
-            }
-
-            scene.add(particles);
-            console.log('Particles created');
-
-            const mouse = new THREE.Vector2();
-            const targetPosition = new THREE.Vector3();
-
-            document.addEventListener('mousemove', (event) => {
-                mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-                mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-                targetPosition.set(mouse.x * 3, mouse.y * 2, 0);
-            });
-
-			let animationPhase = 0;
-			let phaseTime = 0;
-
-			const animate = () => {
-				requestAnimationFrame(animate);
-				
-				phaseTime += 0.01;
-				
-				// Cambiar fase cada 3 segundos
-				if (phaseTime > 3) {
-					animationPhase = (animationPhase + 1) % 4;
-					phaseTime = 0;
-				}
-				
-				particles.children.forEach((particle: any, index: number) => {
-					const speed = 0.01 + (index * 0.001);
-					particle.position.lerp(targetPosition, speed);
-					
-					// Diferentes comportamientos según la fase
-					switch(animationPhase) {
-						case 0: // Fase 1: Movimiento aleatorio
-							particle.position.x += (Math.random() - 0.5) * 0.01;
-							particle.position.y += (Math.random() - 0.5) * 0.01;
-							break;
-						case 1: // Fase 2: Movimiento circular
-							particle.position.x += Math.sin(phaseTime + index * 0.1) * 0.02;
-							particle.position.y += Math.cos(phaseTime + index * 0.1) * 0.02;
-							break;
-						case 2: // Fase 3: Movimiento ondulante
-							particle.position.x += Math.sin(phaseTime * 2 + index * 0.2) * 0.015;
-							particle.position.y += Math.cos(phaseTime * 2 + index * 0.2) * 0.015;
-							break;
-						case 3: // Fase 4: Movimiento en espiral
-							let spiralSpeed = 0.01 + (index * 0.0005);
-							let spiralAngle = phaseTime * 2 + index * 0.1;
-							particle.position.x += Math.cos(spiralAngle) * spiralSpeed;
-							particle.position.y += Math.sin(spiralAngle) * spiralSpeed;
-							break;
-							
-					}
-				});
-				
-				renderer.render(scene, camera);
-			};
-
-			animate();
-			console.log("Animation started");
-
-            window.addEventListener('resize', () => {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            });
-            
-        } catch (error) {
-			console.error("Error initializing particles:", error);
-		}
-	});
-</script>

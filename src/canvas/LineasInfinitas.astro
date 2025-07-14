@@ -1,0 +1,133 @@
+---
+import * as THREE from "three";
+const materials = {
+    color: 0x00ffff,
+    opacity: 0.6,
+    lineCount: 50,
+    maxCycles: 300,
+}
+---
+
+<canvas
+    id="canvas"
+    class="absolute top-0 left-0 w-full h-full z-10 text-white"
+    width="1920"
+    height="1080"></canvas>
+
+
+<script >
+    
+    document.addEventListener("DOMContentLoaded", async () => {
+        const THREE = await import("three");
+
+        const canvas = document.getElementById("canvas");
+        const renderer = new THREE.WebGLRenderer({
+            canvas: canvas as HTMLCanvasElement,
+            alpha: true,
+        });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setClearColor(0x000000, 0);
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(
+            75,
+            window.innerWidth / window.innerHeight,
+            0.1,
+            1000,
+        );
+        camera.position.z = 5;
+
+        // Crear líneas infinitas usando las constantes
+        const lines = new THREE.Group();
+
+        for (let i = 0; i < 10; i++) {
+            // Usar el valor directamente ya que lineCount no está disponible en el script
+            const geometry = new THREE.BufferGeometry();
+            const points = [];
+
+            // Crear puntos para la línea
+            for (let j = 0; j < 10; j++) {
+                points.push(
+                    (Math.random() - 0.5) * 20, // x
+                    (Math.random() - 0.5) * 20, // y
+                    (Math.random() - 0.5) * 20, // z
+                );
+            }
+
+            geometry.setAttribute(
+                "position",
+                new THREE.Float32BufferAttribute(points, 3),
+            );
+
+            const material = new THREE.LineBasicMaterial({
+                color: 0x00ffff, // Usar la constante color
+                transparent: true,
+                opacity: 0.9, // Usar la constante opacity
+            });
+
+            const line = new THREE.Line(geometry, material);
+            lines.add(line);
+        }
+
+        scene.add(lines);
+
+        // Variables para el control de animación
+        let animationCycle = 0;
+        let time = 0;
+
+        const animate = () => {
+            requestAnimationFrame(animate);
+
+            time += 0.01;
+            animationCycle++;
+
+            // Reiniciar posiciones cuando se complete el ciclo
+            if (animationCycle >= 300) {
+                // Usar el valor directamente ya que maxCycles no está disponible
+                lines.children.forEach((line: any) => {
+                    const geometry = line.geometry as any;
+                    const positions = geometry.attributes.position
+                        .array as Float32Array;
+
+                    // Reiniciar posiciones de los puntos
+                    for (let i = 0; i < positions.length; i += 3) {
+                        positions[i] = (Math.random() - 0.5) * 20; // x
+                        positions[i + 1] = (Math.random() - 0.5) * 20; // y
+                        positions[i + 2] = (Math.random() - 0.5) * 20; // z
+                    }
+
+                    geometry.attributes.position.needsUpdate = true;
+                });
+
+                animationCycle = 0;
+                console.log("Posiciones reiniciadas");
+            }
+
+            // Animar las líneas
+            lines.children.forEach((line: any, index: number) => {
+                // Rotación continua
+                line.rotation.x += 0.001 + index * 0.0001;
+                line.rotation.y += 0.001 + index * 0.0001;
+
+                // Movimiento ondulante
+                line.position.x = Math.sin(time + index * 0.1) * 2;
+                line.position.y = Math.cos(time + index * 0.1) * 2;
+
+                // Cambiar opacidad basado en el ciclo
+                const material = line.material as any;
+                material.opacity = 0.3 + Math.sin(time + index * 0.2) * 0.3;
+            });
+
+            renderer.render(scene, camera);
+        };
+
+        animate();
+
+        // Manejo de redimensionamiento
+        window.addEventListener("resize", () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    });
+</script>
