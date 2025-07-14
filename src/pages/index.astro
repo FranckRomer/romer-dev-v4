@@ -1,14 +1,15 @@
 ---
 import "../styles/global.css";
 import Dock from "../components/Dock.astro";
-import SeguidorMouse from "../canvas/SeguidorMouse.astro";
+import Header from "../components/Header.astro";
+// import SeguidorMouse from "../canvas/SeguidorMouse.astro";
 import LineasInfinitas from "../canvas/LineasInfinitas.astro";
 ---
 
 <html lang="es">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Romer-Dev</title>
@@ -17,8 +18,37 @@ import LineasInfinitas from "../canvas/LineasInfinitas.astro";
 		<Dock site="Inicio" />
 		<!-- <SeguidorMouse /> -->
 		<LineasInfinitas />
+		<Header />
 		<main class="flex justify-center items-center max-w-8/12 min-h-8/12 m-auto">
-			<h1 class="text-white text-4xl font-bold border border-white rounded-lg bg-blur-2xl backdrop-blur-md p-10 z-50">Romer-Dev</h1>
+			<section class="border border-gray-800 rounded-lg bg-blur-2xl backdrop-blur-xl p-16 z-50">
+				<div>
+					<span class="text-white text-xl">
+						Hola 🖖, soy
+					</span>
+				</div>
+				<div class="flex flex-col justify-center items-center">
+					<!-- <span>soy</span> -->
+					<h1 class="text-4xl font-bold py-4 text-red-400">Francisco Romero</h1>
+				</div>
+				<span class="text-white text-xl ">
+					Desarrollador web, programador y Ing. en IOT
+				</span>
+				<!--descarga CV -->
+				<a class="flex justify-center items-center my-8 animate-bounce hover:scale-110 transition-all duration-300 border-b border-gray-100 " href="/Francisco Romero CV.pdf">
+					<img src="/pdf.png" alt="Descargar CV" class="w-10 h-10" />
+					<span class="text-white text-xl">Descargar CV</span>
+				</a>
+				<div class="flex justify-center items-center my-4 gap-16">
+					<a href="https://github.com/FranckRomer" class="flex flex-col justify-center items-center hover:scale-110 transition-all duration-300 hover:text-blue-500">
+						<img src="/social/github.png" alt="GitHub" class="w-10 h-10" />
+						<span class="text-white text-xl">GitHub</span>
+					</a>
+					<a href="https://www.linkedin.com/in/franckromer" class="flex flex-col justify-center items-center hover:scale-110 transition-all duration-300">
+						<img src="/social/linkedin.png" alt="LinkedIn" class="w-10 h-10" />
+						<span class="text-white text-xl">LinkedIn</span>
+					</a>
+				</div>
+			</section>
 		</main>
 	</body>
 </html>
