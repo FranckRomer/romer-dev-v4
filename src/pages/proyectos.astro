@@ -1,18 +1,295 @@
 ---
-import '../styles/global.css';
-import Dock from '../components/Dock.astro';
+import "../styles/global.css";
+import Dock from "../components/Dock.astro";
 ---
 
 <html lang="es">
     <head>
         <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
-        <title>Romer-Dev | Habilidades</title>
+        <title>Romer-Dev | Proyectos</title>
     </head>
-    <Dock site="Proyectos"/>
-    <body class="bg-gray-900 text-gray-100">
-        <h1 class="text-3xl font-bold underline text-blue-600">Proyectos</h1>
+    <Dock site="Proyectos" />
+    <body class="bg-black text-gray-100 min-h-screen">
+        <main
+            class="flex flex-col items-center justify-center min-h-screen py-10 px-4"
+        >
+            <h1 class="text-4xl font-bold text-blue-400 mb-8">Proyectos</h1>
+
+            <div class="w-full max-w-6xl">
+                <!-- Proyecto principal - Romer Dev v4 -->
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-cyan-400 mb-6">
+                        Proyecto Principal
+                    </h2>
+                    <div
+                        class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-cyan-400/50 transition-all duration-300"
+                    >
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-white mb-2">
+                                    Romer Dev v4
+                                </h3>
+                                <p class="text-gray-300 mb-4">
+                                    Mi portafolio personal desarrollado con
+                                    Astro, Three.js y Tailwind CSS. Incluye
+                                    animaciones 3D, efectos de partículas y un
+                                    diseño moderno y responsive.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span
+                                        class="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-sm"
+                                        >Astro</span
+                                    >
+                                    <span
+                                        class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm"
+                                        >Three.js</span
+                                    >
+                                    <span
+                                        class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm"
+                                        >Tailwind CSS</span
+                                    >
+                                    <span
+                                        class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm"
+                                        >TypeScript</span
+                                    >
+                                </div>
+                                <div class="flex gap-4">
+                                    <a
+                                        href="https://github.com/FranckRomer/romer-dev-v4"
+                                        class="flex items-center gap-2 px-4 py-2 bg-gray-700 rounded-lg hover:bg-gray-600 transition"
+                                    >
+                                        <span>🐙</span>
+                                        Ver código
+                                    </a>
+                                    <a
+                                        href="https://romer-dev.com"
+                                        class="flex items-center gap-2 px-4 py-2 bg-cyan-500 rounded-lg hover:bg-cyan-600 transition"
+                                    >
+                                        <span>🌐</span>
+                                        Ver demo
+                                    </a>
+                                </div>
+                            </div>
+                            <div
+                                class="md:w-64 h-48 bg-gray-700 rounded-lg flex items-center justify-center"
+                            >
+                                <span class="text-4xl">🚀</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Otros proyectos -->
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-cyan-400 mb-6">
+                        Otros Proyectos
+                    </h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Proyecto IoT -->
+                        <div
+                            class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-blue-400/50 transition-all duration-300"
+                        >
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="text-2xl">🔌</span>
+                                <h3 class="text-lg font-bold text-white">
+                                    Sistema IoT Domótico
+                                </h3>
+                            </div>
+                            <p class="text-gray-300 mb-4">
+                                Sistema completo de domótica con ESP32, control
+                                de luces, sensores de temperatura y aplicación
+                                móvil para gestión remota.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-sm"
+                                    >ESP32</span
+                                >
+                                <span
+                                    class="px-2 py-1 bg-green-500/20 text-green-300 rounded text-sm"
+                                    >C++</span
+                                >
+                                <span
+                                    class="px-2 py-1 bg-purple-500/20 text-purple-300 rounded text-sm"
+                                    >IoT</span
+                                >
+                            </div>
+                            <div class="text-sm text-gray-400">
+                                Estado: <span class="text-green-400"
+                                    >Completado</span
+                                >
+                            </div>
+                        </div>
+
+                        <!-- Proyecto Web Scraping -->
+                        <div
+                            class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-green-400/50 transition-all duration-300"
+                        >
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="text-2xl">🤖</span>
+                                <h3 class="text-lg font-bold text-white">
+                                    Bot de Web Scraping
+                                </h3>
+                            </div>
+                            <p class="text-gray-300 mb-4">
+                                Automatización de recolección de datos con
+                                Python, Selenium y APIs. Procesamiento y
+                                almacenamiento en MongoDB.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-2 py-1 bg-yellow-500/20 text-yellow-300 rounded text-sm"
+                                    >Python</span
+                                >
+                                <span
+                                    class="px-2 py-1 bg-green-500/20 text-green-300 rounded text-sm"
+                                    >Selenium</span
+                                >
+                                <span
+                                    class="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-sm"
+                                    >MongoDB</span
+                                >
+                            </div>
+                            <div class="text-sm text-gray-400">
+                                Estado: <span class="text-green-400"
+                                    >En producción</span
+                                >
+                            </div>
+                        </div>
+
+                        <!-- Proyecto API -->
+                        <div
+                            class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-purple-400/50 transition-all duration-300"
+                        >
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="text-2xl">⚡</span>
+                                <h3 class="text-lg font-bold text-white">
+                                    API REST con Node.js
+                                </h3>
+                            </div>
+                            <p class="text-gray-300 mb-4">
+                                API completa con autenticación JWT, validación
+                                de datos, documentación con Swagger y tests
+                                automatizados.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-2 py-1 bg-green-500/20 text-green-300 rounded text-sm"
+                                    >Node.js</span
+                                >
+                                <span
+                                    class="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-sm"
+                                    >Express</span
+                                >
+                                <span
+                                    class="px-2 py-1 bg-purple-500/20 text-purple-300 rounded text-sm"
+                                    >JWT</span
+                                >
+                            </div>
+                            <div class="text-sm text-gray-400">
+                                Estado: <span class="text-yellow-400"
+                                    >En desarrollo</span
+                                >
+                            </div>
+                        </div>
+
+                        <!-- Proyecto Frontend -->
+                        <div
+                            class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-pink-400/50 transition-all duration-300"
+                        >
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="text-2xl">🎨</span>
+                                <h3 class="text-lg font-bold text-white">
+                                    Dashboard React
+                                </h3>
+                            </div>
+                            <p class="text-gray-300 mb-4">
+                                Dashboard administrativo con React, gráficos
+                                interactivos, gestión de usuarios y diseño
+                                responsive.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-2 py-1 bg-cyan-500/20 text-cyan-300 rounded text-sm"
+                                    >React</span
+                                >
+                                <span
+                                    class="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-sm"
+                                    >Chart.js</span
+                                >
+                                <span
+                                    class="px-2 py-1 bg-green-500/20 text-green-300 rounded text-sm"
+                                    >Tailwind</span
+                                >
+                            </div>
+                            <div class="text-sm text-gray-400">
+                                Estado: <span class="text-blue-400"
+                                    >Planificado</span
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Estadísticas -->
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-cyan-400 mb-6">
+                        Estadísticas de GitHub
+                    </h2>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="bg-gray-800/50 rounded-xl p-4 text-center">
+                            <div class="text-2xl font-bold text-cyan-400">
+                                10+
+                            </div>
+                            <div class="text-sm text-gray-300">Proyectos</div>
+                        </div>
+                        <div class="bg-gray-800/50 rounded-xl p-4 text-center">
+                            <div class="text-2xl font-bold text-blue-400">
+                                5+
+                            </div>
+                            <div class="text-sm text-gray-300">Lenguajes</div>
+                        </div>
+                        <div class="bg-gray-800/50 rounded-xl p-4 text-center">
+                            <div class="text-2xl font-bold text-green-400">
+                                5+
+                            </div>
+                            <div class="text-sm text-gray-300">Años exp.</div>
+                        </div>
+                        <div class="bg-gray-800/50 rounded-xl p-4 text-center">
+                            <div class="text-2xl font-bold text-purple-400">
+                                100%
+                            </div>
+                            <div class="text-sm text-gray-300">Compromiso</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CTA -->
+                <section class="text-center">
+                    <h2 class="text-2xl font-bold text-cyan-400 mb-4">
+                        ¿Tienes un proyecto en mente?
+                    </h2>
+                    <p class="text-gray-300 mb-6">
+                        Me encantaría ayudarte a hacerlo realidad. ¡Hablemos
+                        sobre tu idea!
+                    </p>
+                    <a
+                        href="/contacto"
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg hover:from-cyan-500 hover:to-blue-600 transition-all duration-300"
+                    >
+                        <span>💬</span>
+                        Contactar
+                    </a>
+                </section>
+            </div>
+            <footer class="w-full max-w-4xl my-10 text-white">
+                <p>
+                    <span>🤝</span> Francisco Romero
+                </p>
+            </footer>
+        </main>
     </body>
 </html>

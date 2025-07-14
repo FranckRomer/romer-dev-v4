@@ -1,15 +1,33 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 const page = Astro.params.page;
+// import Theme from "./Theme.jsx";
 // const isActive = (path) => page === path ? 'border-b-2 border-white' : '';
 ---
 
-<!-- <header class="flex justify-center items-center bg-black py-4 px-4">
-    <a href="/" class="text-white text-xl font-bold hover:text-gray-300 mx-4">Inicio</a>
-    <a href="/experiencia" class="text-white text-xl font-bold hover:text-gray-300 mx-4">Experiencia</a>
-    <a href="/habilidades" class="text-white text-xl font-bold hover:text-gray-300 mx-4">Habilidades</a>
-    <a href="/proyectos" class="text-white text-xl font-bold hover:text-gray-300 mx-4">Proyectos</a>
-    <a href="/contacto" class="text-white text-xl font-bold hover:text-gray-300 mx-4">Contacto</a>
-</header>  -->
+<header class="flex justify-between items-center bg-transparent backdrop-blur-2xl border-gray-800 py-4 px-4 z-50">
+    <div>
+        <a
+            href="/"
+            class="text-white text-xl font-bold hover:text-gray-300 mx-4"
+            >Inicio</a
+        >
+    </div>
+    <div class="flex justify-center items-center">
+        <!-- cambio de tema dark y light -->
+        <!-- <Theme /> -->
+        <a
+            href="/experiencia"
+            class="text-white text-xl font-bold hover:text-gray-300 mx-4"
+        >
+            <img src="/social/linkedin.png" alt="LinkedIn" class="w-10 h-10" />
+        </a>
+        <a
+            href="/proyectos"
+            class="text-white text-xl font-bold hover:text-gray-300 mx-4"
+        >
+            <img src="/social/github.png" alt="GitHub" class="w-10 h-10" />
+        </a>
 
-
+    </div>
+</header>

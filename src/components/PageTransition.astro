@@ -1,0 +1,143 @@
+---
+// src/components/PageTransition.astro
+---
+
+<div id="page-transition" class="page-transition">
+    <slot />
+</div>
+
+<script>
+    class PageTransition {
+        constructor() {
+            this.currentPage = window.location.pathname;
+            this.transitionElement = document.getElementById("page-transition");
+            this.init();
+        }
+
+        init() {
+            // Mostrar página actual
+            this.showPage();
+
+            // Escuchar cambios de navegación
+            this.listenToNavigation();
+
+            // Agregar animaciones a elementos
+            this.addElementAnimations();
+        }
+
+        showPage() {
+            setTimeout(() => {
+                this.transitionElement?.classList.add("enter");
+            }, 100);
+        }
+
+        listenToNavigation() {
+            // Interceptar clicks en enlaces internos
+            document.addEventListener("click", (e) => {
+                const link = e.target.closest("a");
+                if (
+                    link &&
+                    link.href &&
+                    link.href.startsWith(window.location.origin)
+                ) {
+                    e.preventDefault();
+                    this.navigateTo(link.href);
+                }
+            });
+
+            // Escuchar cambios de navegación del navegador
+            window.addEventListener("popstate", () => {
+                this.handlePageChange();
+            });
+        }
+
+        async navigateTo(url) {
+            // Ocultar página actual
+            this.transitionElement?.classList.remove("enter");
+            this.transitionElement?.classList.add("exit");
+
+            // Mostrar loading
+            this.showLoading();
+
+            try {
+                // Simular carga (en producción, aquí cargarías la nueva página)
+                await new Promise((resolve) => setTimeout(resolve, 800));
+
+                // Cambiar URL
+                window.history.pushState({}, "", url);
+
+                // Actualizar contenido (en producción, aquí actualizarías el DOM)
+                this.handlePageChange();
+            } catch (error) {
+                console.error("Error en navegación:", error);
+            } finally {
+                this.hideLoading();
+            }
+        }
+
+        handlePageChange() {
+            // Actualizar página actual
+            this.currentPage = window.location.pathname;
+
+            // Reiniciar transiciones
+            this.transitionElement?.classList.remove("exit");
+            this.transitionElement?.classList.add("enter");
+
+            // Re-aplicar animaciones
+            this.addElementAnimations();
+        }
+
+        addElementAnimations() {
+            // Animar títulos
+            const titles = document.querySelectorAll("h1, h2");
+            titles.forEach((title, index) => {
+                title.classList.add("fade-in-up");
+                if (index > 0) {
+                    title.classList.add(`fade-in-up-delay-${index}`);
+                }
+            });
+
+            // Animar tarjetas
+            const cards = document.querySelectorAll(".bg-gray-800\\/50");
+            cards.forEach((card, index) => {
+                card.classList.add("scale-in");
+                if (index > 0) {
+                    card.classList.add(`scale-in-delay-${(index % 3) + 1}`);
+                }
+            });
+
+            // Animar botones
+            const buttons = document.querySelectorAll("button, a[href]");
+            buttons.forEach((button, index) => {
+                button.classList.add("fade-in-up");
+                if (index > 0) {
+                    button.classList.add(`fade-in-up-delay-${(index % 3) + 1}`);
+                }
+            });
+        }
+
+        showLoading() {
+            const loading = document.createElement("div");
+            loading.className = "loading-overlay";
+            loading.innerHTML = `
+                <div class="loading-spinner"></div>
+            `;
+            document.body.appendChild(loading);
+        }
+
+        hideLoading() {
+            const loading = document.querySelector(".loading-overlay");
+            if (loading) {
+                loading.style.opacity = "0";
+                setTimeout(() => {
+                    loading.remove();
+                }, 500);
+            }
+        }
+    }
+
+    // Inicializar cuando el DOM esté listo
+    document.addEventListener("DOMContentLoaded", () => {
+        new PageTransition();
+    });
+</script>

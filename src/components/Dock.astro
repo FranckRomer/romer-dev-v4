@@ -1,16 +1,16 @@
 ---
 import "../styles/global.css";
 import ButtonIcon from "./ButtonIcon.astro";
-const site = Astro.props.site;
+const { site } = Astro.props;
+import PageTransition from "./PageTransition.astro";
 ---
 
-<nav class="absolute bottom-0  left-0 right-0 w-auto flex justify-center items-center m-10 z-30">
-    <div class="flex justify-center items-center bg-transparent shadow-2xl backdrop-blur-2xl rounded-t-lg rounded-lg">
+<nav class="fixed bottom-0 left-0 right-0 w-auto flex justify-center items-center md:m-4 m-2 z-30">
+    <div class="flex justify-center items-center bg-transparent shadow-2xl backdrop-blur-2xl rounded-t-lg rounded-lg dock-transition">
         <ButtonIcon href="/" icon="/home.svg" alt="Inicio" site={site}/>
         <ButtonIcon href="/experiencia" icon="/experiencia.svg" alt="Experiencia" site={site}/>
         <ButtonIcon href="/habilidades" icon="/habilidades.svg" alt="Habilidades" site={site}/>
         <ButtonIcon href="/proyectos" icon="/proyectos.svg" alt="Proyectos" site={site}/>
         <ButtonIcon href="/contacto" icon="/contacto.svg" alt="Contacto" site={site}/>
-
     </div>
 </nav>

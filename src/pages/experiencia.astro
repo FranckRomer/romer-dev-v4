@@ -1,105 +1,156 @@
 ---
 import "../styles/global.css";
 import Dock from "../components/Dock.astro";
+import LineasInfinitas from "../canvas/LineasInfinitas.astro";
 ---
 
 <html lang="es">
     <head>
         <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>Romer-Dev | Experiencia</title>
     </head>
-    <Dock site="Experiencia"/>
-    <body
-        class="bg-gray-900 text-gray-100 w-full h-full "
-    >
-        <div>
-            <h1 class="text-3xl font-bold underline text-gray-100">
-                Experiencia
-            </h1>
-        </div>
-        <div>
-            <h2 class="text-gray-100 font-bold text-2xl">Evolve Interactive</h2>
-            <h3 class="text-gray-100">
-                Desarrollador Backend y Automatización de Datos
-            </h3>
-            <h4 class="text-gray-100">Abril 2023 – Julio 2025</h4>
-            <p class="text-gray-100">
-                <ul></ul>
-                <li>
-                    Especialización en desarrollo backend y automatización con
-                    robots de web scraping para la recolección y gestión de
-                    datos.
-                </li>
-                <li>
-                    Diseño, desarrollo y mejora de APIs para distintos clientes.
-                </li>
-                <li>
-                    Optimización y mantenimiento de procesos automatizados
-                    existentes.
-                </li>
-                <li>
-                    Implementación de servicios en AWS como S3 para manejo y
-                    almacenamiento de información.
-                </li>
-                <li>
-                    Desarrollo de soluciones personalizadas para automatizar
-                    procesos empresariales.
-                </li>
-                <li>Mantenimiento y mejoras para sitios webs</li>
-            </p>
-        </div>
+    <Dock site="Experiencia" />
+    <!-- <LineasInfinitas /> -->
+    <body class="bg-black w-screen h-screen">
+        <main class="flex justify-center items-start pt-20 pb-10 px-4">
+            <div class="max-w-4xl w-full">
+                <!-- Título principal -->
+                <div class="text-center mb-12">
+                    <h1 class="text-5xl font-bold text-white mb-4">
+                        Experiencia <span class="text-cyan-400">Profesional</span>
+                    </h1>
+                    <div class="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto"></div>
+                </div>
 
-        <div>
-            <h3 class="text-gray-100 font-bold text-2xl">Accesa</h3>
-            <h4 class="text-gray-100">Agosto 2021 – Marzo 2023</h4>
-            <p class="text-gray-100">
-                <ul></ul>
-                <li>
-                    Desarrollo completo de soluciones IoT: desde hardware hasta
-                    software.
-                </li>
-                <li>
-                    Proyecto de localización y conteo de autobuses: diseño e
-                    implementación del sistema completo.
-                </li>
-                <li>
-                    Proyecto de domótica: actualización de hardware y software,
-                    e integración de nuevas funcionalidades.
-                </li>
-                <li>
-                    Proyecto de estacionamientos: mantenimiento y mejora de
-                    sistema de control de parking.
-                </li>
-                <li>
-                    Participación en todas las fases del desarrollo: planeación,
-                    implementación, instalación y soporte técnico a clientes.
-                </li>
-            </p>
-        </div>
+                <!-- Timeline de experiencia -->
+                <div class="space-y-12">
+                    <!-- Evolve Interactive -->
+                    <div class="relative">
+                        <div class="absolute left-0 top-0 w-4 h-4 bg-cyan-400 rounded-full border-4 border-black"></div>
+                        <div class="ml-8 p-6 bg-gray-900/50  backdrop-blur-2xl border border-gray-800 rounded-lg hover:border-cyan-400/50 transition-all duration-300 hover:border-2">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                                <div>
+                                    <h2 class="text-2xl font-bold text-white mb-2">Evolve Interactive</h2>
+                                    <h3 class="text-lg text-cyan-400 font-semibold mb-1">
+                                        Desarrollador Backend y Automatización de Datos
+                                    </h3>
+                                </div>
+                                <span class="text-sm text-gray-400 bg-gray-800 px-3 py-1 rounded-full">
+                                    Abril 2023 – Julio 2025
+                                </span>
+                            </div>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-start">
+                                    <span class="text-cyan-400 mr-2">•</span>
+                                    Especialización en desarrollo backend y automatización con robots de web scraping para la recolección y gestión de datos.
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-400 mr-2">•</span>
+                                    Diseño, desarrollo y mejora de APIs para distintos clientes.
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-400 mr-2">•</span>
+                                    Optimización y mantenimiento de procesos automatizados existentes.
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-400 mr-2">•</span>
+                                    Implementación de servicios en AWS como S3 para manejo y almacenamiento de información.
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-400 mr-2">•</span>
+                                    Desarrollo de soluciones personalizadas para automatizar procesos empresariales.
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-400 mr-2">•</span>
+                                    Mantenimiento y mejoras para sitios webs
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
-        <div>
-            <h3 class="text-gray-100 font-bold text-2xl">
-                Laboratorio SLED – Facultad de Ciencias de la Electrónica (FCE)
-            </h3>
-            <h4 class="text-gray-100">Agosto 2019 – Enero 2021</h4>
-            <p class="text-gray-100">
-                <ul></ul>
-                <li>
-                    Investigación y desarrollo de una lámpara inteligente desde
-                    cero.
-                </li>
-                <li>
-                    Selección, ensamblado y programación de componentes
-                    electrónicos para crear un dispositivo IoT funcional.
-                </li>
-                <li>
-                    Participación activa en procesos de I+D con enfoque en
-                    automatización y conectividad.
-                </li>
-            </p>
-        </div>
+                    <!-- Accesa -->
+                    <div class="relative">
+                        <div class="absolute left-0 top-0 w-4 h-4 bg-blue-500 rounded-full border-4 border-black"></div>
+                        <div class="ml-8 p-6 bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-lg hover:border-blue-500/50 transition-all duration-300 hover:border-2">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                                <div>
+                                    <h2 class="text-2xl font-bold text-white mb-2">Accesa</h2>
+                                    <h3 class="text-lg text-blue-400 font-semibold mb-1">
+                                        Desarrollador IoT
+                                    </h3>
+                                </div>
+                                <span class="text-sm text-gray-400 bg-gray-800 px-3 py-1 rounded-full">
+                                    Agosto 2021 – Marzo 2023
+                                </span>
+                            </div>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-start">
+                                    <span class="text-blue-400 mr-2">•</span>
+                                    Desarrollo completo de soluciones IoT: desde hardware hasta software.
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-400 mr-2">•</span>
+                                    Proyecto de localización y conteo de autobuses: diseño e implementación del sistema completo.
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-400 mr-2">•</span>
+                                    Proyecto de domótica: actualización de hardware y software, e integración de nuevas funcionalidades.
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-400 mr-2">•</span>
+                                    Proyecto de estacionamientos: mantenimiento y mejora de sistema de control de parking.
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-400 mr-2">•</span>
+                                    Participación en todas las fases del desarrollo: planeación, implementación, instalación y soporte técnico a clientes.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Laboratorio SLED -->
+                    <div class="relative">
+                        <div class="absolute left-0 top-0 w-4 h-4 bg-purple-500 rounded-full border-4 border-black"></div>
+                        <div class="ml-8 p-6 bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-lg hover:border-purple-500/50 transition-all duration-300 hover:border-2">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                                <div>
+                                    <h2 class="text-2xl font-bold text-white mb-2">
+                                        Laboratorio SLED – Facultad de Ciencias de la Electrónica (FCE)
+                                    </h2>
+                                    <h3 class="text-lg text-purple-400 font-semibold mb-1">
+                                        Investigador IoT
+                                    </h3>
+                                </div>
+                                <span class="text-sm text-gray-400 bg-gray-800 px-3 py-1 rounded-full">
+                                    Agosto 2019 – Enero 2021
+                                </span>
+                            </div>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-start">
+                                    <span class="text-purple-400 mr-2">•</span>
+                                    Investigación y desarrollo de una lámpara inteligente desde cero.
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-purple-400 mr-2">•</span>
+                                    Selección, ensamblado y programación de componentes electrónicos para crear un dispositivo IoT funcional.
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-purple-400 mr-2">•</span>
+                                    Participación activa en procesos de I+D con enfoque en automatización y conectividad.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <footer class="w-full max-w-4xl my-10 text-white">
+                    <p>
+                        <span>🤝</span> Francisco Romero
+                    </p>
+                </footer>
+            </div>
+        </main>
     </body>
 </html>

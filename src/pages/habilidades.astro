@@ -1,31 +1,258 @@
 ---
-import '../styles/global.css';
-import Dock from '../components/Dock.astro';
+import "../styles/global.css";
+import Dock from "../components/Dock.astro";
 ---
 
 <html lang="es">
     <head>
         <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>Romer-Dev | Habilidades</title>
     </head>
-    <Dock site="Habilidades"/>
-    <body class="bg-gray-900 text-gray-100">
-        <h1 class="text-3xl font-bold underline text-blue-600">Habilidades</h1>
-        <h2 class="text-gray-100 font-bold text-2xl">Habilidades Técnicas</h2>
-
-        <p class="text-gray-100">
-            <ul></ul>
-                <li>Lenguajes de programación: JavaScript (Node.js, React.js), Python, C++, MATLAB</li>
-                <li>Frontend: HTML, CSS, React.js, Tailwind CSS, Astro</li>
-                <li>Backend y Bases de datos: Node.js, SQL, MySQL, MongoDB</li>
-                <li>Desarrollo de hardware: C++, Python, Ensamblador</li>
-                <li>Microcontroladores y tarjetas: ESP32, ESP8266, Raspberry Pi, versiones de PIC</li>
-                <li>Control de versiones: Git, GitHub</li>
-                <li>Herramientas: Línea de comandos (CMD), entornos de desarrollo integrados</li>
-                <li>Adaptabilidad: Alta capacidad de aprendizaje y adaptación a nuevas tecnologías y lenguajes</li>
-            </ul>
+    <Dock site="Habilidades" />
+    <body class="bg-black text-gray-100 min-h-screen">
+        <main
+            class="flex flex-col items-center justify-center min-h-screen py-10"
+        >
+            <h1 class="text-4xl font-bold text-blue-400 mb-8">Habilidades</h1>
+            <section class="w-full max-w-4xl mb-10">
+                <h2 class="text-2xl font-bold text-cyan-400 mb-4">
+                    Habilidades Blandas
+                </h2>
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-lg">
+                    <li class="flex items-center gap-2">
+                        <span>🤝</span> Trabajo en equipo
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span>💡</span> Creatividad
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span>🧠</span> Resolución de problemas
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span>📚</span> Aprendizaje continuo
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span>🗣️</span> Comunicación efectiva
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span>⚡</span> Adaptabilidad
+                    </li>
+                </ul>
+            </section>
+            <section class="w-full max-w-4xl">
+                <h2 class="text-2xl font-bold text-cyan-400 mb-4">
+                    Habilidades Técnicas
+                </h2>
+                <div
+                    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mb-10"
+                >
+                    <!-- Lenguajes -->
+                    <div
+                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
+                    >
+                        <img
+                            src="/skills/js.png"
+                            alt="JavaScript"
+                            class="w-12 h-12 mb-2"
+                        />
+                        <span class="text-yellow-300 font-semibold"
+                            >JavaScript</span
+                        >
+                    </div>
+                    <div
+                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
+                    >
+                        <img
+                            src="/skills/python.png"
+                            alt="Python"
+                            class="w-12 h-12 mb-2"
+                        />
+                        <span class="text-blue-300 font-semibold">Python</span>
+                    </div>
+                    <div
+                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
+                    >
+                        <img
+                            src="/skills/C++.png"
+                            alt="C++"
+                            class="w-12 h-12 mb-2"
+                        />
+                        <span class="text-blue-400 font-semibold">C++</span>
+                    </div>
+                    <div
+                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
+                    >
+                        <img
+                            src="/skills/matlab.png"
+                            alt="MATLAB"
+                            class="w-12 h-12 mb-2"
+                        />
+                        <span class="text-yellow-200 font-semibold">MATLAB</span
+                        >
+                    </div>
+                    <!-- Frontend -->
+                    <div
+                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
+                    >
+                        <img
+                            src="/skills/html.png"
+                            alt="HTML"
+                            class="w-12 h-12 mb-2"
+                        />
+                        <span class="text-orange-400 font-semibold">HTML</span>
+                    </div>
+                    <div
+                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
+                    >
+                        <img
+                            src="/skills/css.png"
+                            alt="CSS"
+                            class="w-12 h-12 mb-2"
+                        />
+                        <span class="text-blue-400 font-semibold">CSS</span>
+                    </div>
+                    <div
+                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
+                    >
+                        <img
+                            src="/skills/react.png"
+                            alt="React"
+                            class="w-12 h-12 mb-2"
+                        />
+                        <span class="text-cyan-300 font-semibold">React</span>
+                    </div>
+                    <div
+                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
+                    >
+                        <img
+                            src="/skills/tailwind.png"
+                            alt="Tailwind"
+                            class="w-12 h-12 mb-2"
+                        />
+                        <span class="text-cyan-400 font-semibold">Tailwind</span
+                        >
+                    </div>
+                    <!-- Backend y DB -->
+                    <div
+                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
+                    >
+                        <img
+                            src="/skills/nodejs.png"
+                            alt="Node.js"
+                            class="w-12 h-12 mb-2"
+                        />
+                        <span class="text-green-400 font-semibold">Node.js</span
+                        >
+                    </div>
+                    <div
+                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
+                    >
+                        <img
+                            src="/skills/mongodb.png"
+                            alt="MongoDB"
+                            class="w-12 h-12 mb-2"
+                        />
+                        <span class="text-green-300 font-semibold">MongoDB</span
+                        >
+                    </div>
+                    <div
+                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
+                    >
+                        <img
+                            src="/skills/postgres.png"
+                            alt="Postgres"
+                            class="w-12 h-12 mb-2"
+                        />
+                        <span class="text-blue-300 font-semibold">Postgres</span
+                        >
+                    </div>
+                    <!-- Hardware y microcontroladores -->
+                    <div
+                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
+                    >
+                        <img
+                            src="/skills/raspberry.png"
+                            alt="Raspberry Pi"
+                            class="w-12 h-12 mb-2"
+                        />
+                        <span class="text-pink-300 font-semibold"
+                            >Raspberry Pi</span
+                        >
+                    </div>
+                    <div
+                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
+                    >
+                        <img
+                            src="/skills/microchip.png"
+                            alt="Microchip"
+                            class="w-12 h-12 mb-2"
+                        />
+                        <span class="text-red-300 font-semibold">Microchip</span
+                        >
+                    </div>
+                    <div
+                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
+                    >
+                        <img
+                            src="/skills/arduino.png"
+                            alt="Arduino"
+                            class="w-12 h-12 mb-2"
+                        />
+                        <span class="text-blue-200 font-semibold">Arduino</span>
+                    </div>
+                    <!-- Control de versiones -->
+                    <div
+                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
+                    >
+                        <img
+                            src="/skills/git.png"
+                            alt="Git"
+                            class="w-12 h-12 mb-2"
+                        />
+                        <span class="text-orange-300 font-semibold">Git</span>
+                    </div>
+                    <!-- Herramientas -->
+                    <div
+                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
+                    >
+                        <img
+                            src="/skills/linux.png"
+                            alt="Linux"
+                            class="w-12 h-12 mb-2"
+                        />
+                        <span class="text-gray-200 font-semibold">Linux</span>
+                    </div>
+                    <div
+                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
+                    >
+                        <img
+                            src="/skills/figma.png"
+                            alt="Figma"
+                            class="w-12 h-12 mb-2"
+                        />
+                        <span class="text-pink-200 font-semibold">Figma</span>
+                    </div>
+                    <div
+                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
+                    >
+                        <img
+                            src="/skills/notion.png"
+                            alt="Notion"
+                            class="w-12 h-12 mb-2"
+                        />
+                        <span class="text-white font-semibold">Notion</span>
+                    </div>
+                </div>
+                
+            </section>
+            <footer class="w-full max-w-4xl mb-10">
+                <p>
+                    <span>🤝</span> Francisco Romero
+                </p>
+            </footer>
+        </main>
     </body>
 </html>

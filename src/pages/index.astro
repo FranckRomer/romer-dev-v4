@@ -14,13 +14,13 @@ import LineasInfinitas from "../canvas/LineasInfinitas.astro";
 		<meta name="generator" content={Astro.generator} />
 		<title>Romer-Dev</title>
 	</head>
-	<body class="bg-black w-screen h-screen">
+	<body class="bg-black w-screen h-screen ">
 		<Dock site="Inicio" />
 		<!-- <SeguidorMouse /> -->
 		<LineasInfinitas />
-		<Header />
-		<main class="flex justify-center items-center max-w-8/12 min-h-8/12 m-auto">
-			<section class="border border-gray-800 rounded-lg bg-blur-2xl backdrop-blur-xl p-16 z-50">
+		<!-- <Header /> -->
+		<main class="flex justify-center items-center md:max-w-screen-md max-w-screen-sm min-h-screen m-auto ">
+			<section class="border border-gray-800 rounded-lg bg-blur-2xl backdrop-blur-xl md:p-16 p-8 z-10 md:mb-24 mb-32">
 				<div>
 					<span class="text-white text-xl">
 						Hola 🖖, soy
@@ -33,19 +33,29 @@ import LineasInfinitas from "../canvas/LineasInfinitas.astro";
 				<span class="text-white text-xl ">
 					Desarrollador web, programador y Ing. en IOT
 				</span>
+				<p class="text-white text-xl ">
+					Con 5 años de experiencia en el desarrollo de software, me especializo en la creación de aplicaciones web y software.
+				</p>
 				<!--descarga CV -->
-				<a class="flex justify-center items-center my-8 animate-bounce hover:scale-110 transition-all duration-300 border-b border-gray-100 " href="/Francisco Romero CV.pdf">
-					<img src="/pdf.png" alt="Descargar CV" class="w-10 h-10" />
-					<span class="text-white text-xl">Descargar CV</span>
+				<a class="flex justify-center items-center md:my-8 my-4 animate-bounce hover:animate-none hover:scale-110 transition-all duration-300" href="/Francisco Romero CV.pdf">
+					<div class="flex items-center border-b border-gray-100 pb-2">
+						<img src="/pdf.png" alt="Descargar CV" class="w-10 h-10" />
+						<span class="text-white text-xl">Descargar CV</span>
+					</div>
 				</a>
-				<div class="flex justify-center items-center my-4 gap-16">
+				<div class="flex justify-center items-center md:my-8 my-8 md:gap-16 gap-8">
 					<a href="https://github.com/FranckRomer" class="flex flex-col justify-center items-center hover:scale-110 transition-all duration-300 hover:text-blue-500">
 						<img src="/social/github.png" alt="GitHub" class="w-10 h-10" />
 						<span class="text-white text-xl">GitHub</span>
 					</a>
-					<a href="https://www.linkedin.com/in/franckromer" class="flex flex-col justify-center items-center hover:scale-110 transition-all duration-300">
+					<a href="https://www.linkedin.com/in/franckromer" class="flex flex-col justify-center items-center hover:animate-none hover:scale-110 transition-all duration-300">
 						<img src="/social/linkedin.png" alt="LinkedIn" class="w-10 h-10" />
 						<span class="text-white text-xl">LinkedIn</span>
+					</a>
+
+					<a href="https://wa.me/2211160885?text=Hola%20Romer%20Dev,%20me%20gustaría%20contactarte%20sobre%20mi%20proyecto" class="flex flex-col justify-center items-center hover:animate-none hover:scale-110 transition-all duration-300">
+						<img src="/social/whatsapp.png" alt="Whatsapp" class="w-10 h-10" />
+						<span class="text-white text-xl">Whatsapp</span>
 					</a>
 				</div>
 			</section>
