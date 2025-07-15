@@ -14,7 +14,7 @@ const isActive = site.toLowerCase() === alt.toLowerCase();
         </div>
         {
             isActive && (
-                <span class="font-bold text-center opacity-100 text-red-400">.</span>
+                <span class="font-bold text-center opacity-100 text-red-400">{alt}</span>
             ) || (
                 <span class="font-bold text-center text-white opacity-0">.</span>
             )
