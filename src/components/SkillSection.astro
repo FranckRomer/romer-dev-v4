@@ -1,0 +1,27 @@
+---
+// src/components/SkillSection.astro
+import SkillCard from './SkillCard.astro';
+import type { Skill } from '../types/skills';
+
+interface Props {
+    title: string;
+    skills: Skill[];
+    columns?: number;
+}
+
+const { title, skills, columns = 4 } = Astro.props;
+---
+
+<section class="mb-8">
+    <h3 class="text-xl font-bold text-cyan-400 mb-4">{title}</h3>
+    <div class={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-${columns} gap-4`}>
+        {skills.map((skill, index) => (
+            <SkillCard
+                name={skill.name}
+                icon={skill.icon}
+                color={skill.color}
+                delay={index * 100}
+            />
+        ))}
+    </div>
+</section>

@@ -10,19 +10,41 @@ const materials = {
 
 <canvas
     id="canvas"
-    class="fixed top-0 left-0 w-full h-full z-10 text-white"
+    class="fixed top-0 left-0 w-full h-full z-10 text-white transition-opacity duration-500"
     width="1920"
     height="1080"></canvas>
 
+<!-- Botón de toggle -->
+<button
+    id="canvas-toggle"
+    class="fixed top-4 right-4 z-50 bg-gray-800/80 backdrop-blur-sm border border-gray-600 rounded-lg p-3 hover:bg-gray-700/80 transition-all duration-300 group"
+    title="Activar/Desactivar animación (/)"
+>
+    <div class="w-6 h-6 flex items-center justify-center">
+        <svg class="w-4 h-4 text-cyan-400 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+        </svg>
+    </div>
+</button>
 
-<script >
-    
+<script>
     document.addEventListener("DOMContentLoaded", async () => {
         const THREE = await import("three");
 
-        const canvas = document.getElementById("canvas");
+        const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+        const toggleButton = document.getElementById("canvas-toggle") as HTMLButtonElement;
+        
+        // Verificar que los elementos existan
+        if (!canvas || !toggleButton) {
+            console.error("No se encontraron los elementos del canvas o botón");
+            return;
+        }
+
+        let isCanvasActive = true;
+        let animationId: number | null = null;
+
         const renderer = new THREE.WebGLRenderer({
-            canvas: canvas as HTMLCanvasElement,
+            canvas: canvas,
             alpha: true,
         });
         renderer.setSize(window.innerWidth, window.innerHeight);
@@ -37,20 +59,18 @@ const materials = {
         );
         camera.position.z = 5;
 
-        // Crear líneas infinitas usando las constantes
+        // Crear líneas infinitas
         const lines = new THREE.Group();
 
-        for (let i = 0; i < 10; i++) {
-            // Usar el valor directamente ya que lineCount no está disponible en el script
+        for (let i = 0; i < 50; i++) {
             const geometry = new THREE.BufferGeometry();
             const points = [];
 
-            // Crear puntos para la línea
             for (let j = 0; j < 10; j++) {
                 points.push(
-                    (Math.random() - 0.5) * 20, // x
-                    (Math.random() - 0.5) * 20, // y
-                    (Math.random() - 0.5) * 20, // z
+                    (Math.random() - 0.5) * 20,
+                    (Math.random() - 0.5) * 20,
+                    (Math.random() - 0.5) * 20,
                 );
             }
 
@@ -60,9 +80,9 @@ const materials = {
             );
 
             const material = new THREE.LineBasicMaterial({
-                color: 0x00ffff, // Usar la constante color
+                color: 0x00ffff,
                 transparent: true,
-                opacity: 0.9, // Usar la constante opacity
+                opacity: 0.6,
             });
 
             const line = new THREE.Line(geometry, material);
@@ -71,49 +91,42 @@ const materials = {
 
         scene.add(lines);
 
-        // Variables para el control de animación
         let animationCycle = 0;
         let time = 0;
 
         const animate = () => {
-            requestAnimationFrame(animate);
+            if (!isCanvasActive) return;
+
+            animationId = requestAnimationFrame(animate);
 
             time += 0.01;
             animationCycle++;
 
-            // Reiniciar posiciones cuando se complete el ciclo
             if (animationCycle >= 300) {
-                // Usar el valor directamente ya que maxCycles no está disponible
                 lines.children.forEach((line: any) => {
                     const geometry = line.geometry as any;
                     const positions = geometry.attributes.position
                         .array as Float32Array;
 
-                    // Reiniciar posiciones de los puntos
                     for (let i = 0; i < positions.length; i += 3) {
-                        positions[i] = (Math.random() - 0.5) * 20; // x
-                        positions[i + 1] = (Math.random() - 0.5) * 20; // y
-                        positions[i + 2] = (Math.random() - 0.5) * 20; // z
+                        positions[i] = (Math.random() - 0.5) * 20;
+                        positions[i + 1] = (Math.random() - 0.5) * 20;
+                        positions[i + 2] = (Math.random() - 0.5) * 20;
                     }
 
                     geometry.attributes.position.needsUpdate = true;
                 });
 
                 animationCycle = 0;
-                console.log("Posiciones reiniciadas");
             }
 
-            // Animar las líneas
             lines.children.forEach((line: any, index: number) => {
-                // Rotación continua
                 line.rotation.x += 0.001 + index * 0.0001;
                 line.rotation.y += 0.001 + index * 0.0001;
 
-                // Movimiento ondulante
                 line.position.x = Math.sin(time + index * 0.1) * 2;
                 line.position.y = Math.cos(time + index * 0.1) * 2;
 
-                // Cambiar opacidad basado en el ciclo
                 const material = line.material as any;
                 material.opacity = 0.3 + Math.sin(time + index * 0.2) * 0.3;
             });
@@ -121,6 +134,37 @@ const materials = {
             renderer.render(scene, camera);
         };
 
+        // Función para alternar el canvas
+        const toggleCanvas = () => {
+            isCanvasActive = !isCanvasActive;
+            
+            if (isCanvasActive) {
+                // Activar canvas
+                canvas.style.opacity = "1";
+                toggleButton.classList.add("active");
+                animate(); // Reiniciar animación
+            } else {
+                // Desactivar canvas
+                canvas.style.opacity = "0";
+                toggleButton.classList.remove("active");
+                if (animationId) {
+                    cancelAnimationFrame(animationId);
+                }
+            }
+        };
+
+        // Event listeners
+        toggleButton.addEventListener("click", toggleCanvas);
+
+        // Tecla slash para alternar
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "/" && !e.ctrlKey && !e.altKey && !e.metaKey) {
+                e.preventDefault();
+                toggleCanvas();
+            }
+        });
+
+        // Iniciar animación
         animate();
 
         // Manejo de redimensionamiento
@@ -131,3 +175,14 @@ const materials = {
         });
     });
 </script>
+
+<style>
+    #canvas-toggle.active {
+        background-color: rgba(34, 197, 94, 0.2);
+        border-color: rgb(34, 197, 94);
+    }
+    
+    #canvas-toggle.active svg {
+        color: rgb(34, 197, 94);
+    }
+</style>

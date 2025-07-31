@@ -216,3 +216,40 @@
         opacity: 1;
     }
 }
+
+/* Efecto de pulso para el botón cuando está activo */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+#canvas-toggle.active {
+    animation: pulse 2s infinite;
+}
+
+/* Tooltip para el botón */
+#canvas-toggle::after {
+    content: "Presiona / para alternar";
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    margin-right: 0.5rem;
+}
+
+#canvas-toggle:hover::after {
+    opacity: 1;
+}

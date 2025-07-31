@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
 import Dock from "../components/Dock.astro";
+import SkillSection from "../components/SkillSection.astro";
+import { skills } from "../data/skills.js";
 ---
 
 <html lang="es">
@@ -13,246 +15,73 @@ import Dock from "../components/Dock.astro";
     </head>
     <Dock site="Habilidades" />
     <body class="bg-black text-gray-100 min-h-screen">
-        <main
-            class="flex flex-col items-center justify-center min-h-screen py-10"
-        >
-            <h1 class="text-4xl font-bold text-blue-400 mb-8">Habilidades</h1>
-            <section class="w-full max-w-4xl mb-10">
-                <h2 class="text-2xl font-bold text-cyan-400 mb-4">
-                    Habilidades Blandas
-                </h2>
-                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-lg">
-                    <li class="flex items-center gap-2">
-                        <span>🤝</span> Trabajo en equipo
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <span>💡</span> Creatividad
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <span>🧠</span> Resolución de problemas
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <span>📚</span> Aprendizaje continuo
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <span>🗣️</span> Comunicación efectiva
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <span>⚡</span> Adaptabilidad
-                    </li>
-                </ul>
-            </section>
-            <section class="w-full max-w-4xl">
-                <h2 class="text-2xl font-bold text-cyan-400 mb-4">
-                    Habilidades Técnicas
-                </h2>
-                <div
-                    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mb-10"
-                >
-                    <!-- Lenguajes -->
-                    <div
-                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
-                    >
-                        <img
-                            src="/skills/js.png"
-                            alt="JavaScript"
-                            class="w-12 h-12 mb-2"
-                        />
-                        <span class="text-yellow-300 font-semibold"
-                            >JavaScript</span
-                        >
+        <main class="flex flex-col items-center justify-center min-h-screen py-10 px-4">
+            <h1 class="text-4xl font-bold text-blue-400 mb-8 fade-in-up">Habilidades</h1>
+            
+            <div class="w-full max-w-6xl space-y-8">
+                <!-- Habilidades Blandas -->
+                <section class="fade-in-up-delay-1">
+                    <h2 class="text-2xl font-bold text-cyan-400 mb-4">Habilidades Blandas</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="flex items-center gap-3 p-4 bg-gray-800/50 rounded-xl">
+                            <span class="text-2xl">🤝</span>
+                            <span class="text-white">Trabajo en equipo</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-gray-800/50 rounded-xl">
+                            <span class="text-2xl">💡</span>
+                            <span class="text-white">Creatividad</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-gray-800/50 rounded-xl">
+                            <span class="text-2xl">🧠</span>
+                            <span class="text-white">Resolución de problemas</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-gray-800/50 rounded-xl">
+                            <span class="text-2xl">📚</span>
+                            <span class="text-white">Aprendizaje continuo</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-gray-800/50 rounded-xl">
+                            <span class="text-2xl">🗣️</span>
+                            <span class="text-white">Comunicación efectiva</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-gray-800/50 rounded-xl">
+                            <span class="text-2xl">⚡</span>
+                            <span class="text-white">Adaptabilidad</span>
+                        </div>
+                        <!-- automatización -->
+                        <div class="flex items-center gap-3 p-4 bg-gray-800/50 rounded-xl">
+                            <span class="text-2xl">🤖</span>
+                            <span class="text-white">Automatización</span>
+                        </div>
+                        <!-- liderazgo -->
+                        <div class="flex items-center gap-3 p-4 bg-gray-800/50 rounded-xl">
+                            <span class="text-2xl">👥</span>
+                            <span class="text-white">Liderazgo</span>
+                        </div>
+                        <!-- toma de decisiones -->
+                        <div class="flex items-center gap-3 p-4 bg-gray-800/50 rounded-xl">
+                            <span class="text-2xl">🤔</span>
+                            <span class="text-white">Toma de decisiones</span>
+                        </div>
                     </div>
-                    <div
-                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
-                    >
-                        <img
-                            src="/skills/python.png"
-                            alt="Python"
-                            class="w-12 h-12 mb-2"
-                        />
-                        <span class="text-blue-300 font-semibold">Python</span>
-                    </div>
-                    <div
-                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
-                    >
-                        <img
-                            src="/skills/C++.png"
-                            alt="C++"
-                            class="w-12 h-12 mb-2"
-                        />
-                        <span class="text-blue-400 font-semibold">C++</span>
-                    </div>
-                    <div
-                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
-                    >
-                        <img
-                            src="/skills/matlab.png"
-                            alt="MATLAB"
-                            class="w-12 h-12 mb-2"
-                        />
-                        <span class="text-yellow-200 font-semibold">MATLAB</span
-                        >
-                    </div>
-                    <!-- Frontend -->
-                    <div
-                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
-                    >
-                        <img
-                            src="/skills/html.png"
-                            alt="HTML"
-                            class="w-12 h-12 mb-2"
-                        />
-                        <span class="text-orange-400 font-semibold">HTML</span>
-                    </div>
-                    <div
-                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
-                    >
-                        <img
-                            src="/skills/css.png"
-                            alt="CSS"
-                            class="w-12 h-12 mb-2"
-                        />
-                        <span class="text-blue-400 font-semibold">CSS</span>
-                    </div>
-                    <div
-                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
-                    >
-                        <img
-                            src="/skills/react.png"
-                            alt="React"
-                            class="w-12 h-12 mb-2"
-                        />
-                        <span class="text-cyan-300 font-semibold">React</span>
-                    </div>
-                    <div
-                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
-                    >
-                        <img
-                            src="/skills/tailwind.png"
-                            alt="Tailwind"
-                            class="w-12 h-12 mb-2"
-                        />
-                        <span class="text-cyan-400 font-semibold">Tailwind</span
-                        >
-                    </div>
-                    <!-- Backend y DB -->
-                    <div
-                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
-                    >
-                        <img
-                            src="/skills/nodejs.png"
-                            alt="Node.js"
-                            class="w-12 h-12 mb-2"
-                        />
-                        <span class="text-green-400 font-semibold">Node.js</span
-                        >
-                    </div>
-                    <div
-                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
-                    >
-                        <img
-                            src="/skills/mongodb.png"
-                            alt="MongoDB"
-                            class="w-12 h-12 mb-2"
-                        />
-                        <span class="text-green-300 font-semibold">MongoDB</span
-                        >
-                    </div>
-                    <div
-                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
-                    >
-                        <img
-                            src="/skills/postgres.png"
-                            alt="Postgres"
-                            class="w-12 h-12 mb-2"
-                        />
-                        <span class="text-blue-300 font-semibold">Postgres</span
-                        >
-                    </div>
-                    <!-- Hardware y microcontroladores -->
-                    <div
-                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
-                    >
-                        <img
-                            src="/skills/raspberry.png"
-                            alt="Raspberry Pi"
-                            class="w-12 h-12 mb-2"
-                        />
-                        <span class="text-pink-300 font-semibold"
-                            >Raspberry Pi</span
-                        >
-                    </div>
-                    <div
-                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
-                    >
-                        <img
-                            src="/skills/microchip.png"
-                            alt="Microchip"
-                            class="w-12 h-12 mb-2"
-                        />
-                        <span class="text-red-300 font-semibold">Microchip</span
-                        >
-                    </div>
-                    <div
-                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
-                    >
-                        <img
-                            src="/skills/arduino.png"
-                            alt="Arduino"
-                            class="w-12 h-12 mb-2"
-                        />
-                        <span class="text-blue-200 font-semibold">Arduino</span>
-                    </div>
-                    <!-- Control de versiones -->
-                    <div
-                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
-                    >
-                        <img
-                            src="/skills/git.png"
-                            alt="Git"
-                            class="w-12 h-12 mb-2"
-                        />
-                        <span class="text-orange-300 font-semibold">Git</span>
-                    </div>
-                    <!-- Herramientas -->
-                    <div
-                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
-                    >
-                        <img
-                            src="/skills/linux.png"
-                            alt="Linux"
-                            class="w-12 h-12 mb-2"
-                        />
-                        <span class="text-gray-200 font-semibold">Linux</span>
-                    </div>
-                    <div
-                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
-                    >
-                        <img
-                            src="/skills/figma.png"
-                            alt="Figma"
-                            class="w-12 h-12 mb-2"
-                        />
-                        <span class="text-pink-200 font-semibold">Figma</span>
-                    </div>
-                    <div
-                        class="flex flex-col items-center bg-gray-800/70 rounded-xl p-4 shadow-lg hover:scale-105 transition"
-                    >
-                        <img
-                            src="/skills/notion.png"
-                            alt="Notion"
-                            class="w-12 h-12 mb-2"
-                        />
-                        <span class="text-white font-semibold">Notion</span>
-                    </div>
-                </div>
-                
-            </section>
-            <footer class="w-full max-w-4xl mb-10">
-                <p>
-                    <span>🤝</span> Francisco Romero
-                </p>
-            </footer>
+                </section>
+
+                <!-- Habilidades Técnicas -->
+                <section class="fade-in-up-delay-2">
+                    <h2 class="text-2xl font-bold text-cyan-400 mb-6">Habilidades Técnicas</h2>
+                    <SkillSection title="Lenguajes de Programación" skills={skills.languages} />
+                    <SkillSection title="Frontend" skills={skills.frontend} />
+                    <SkillSection title="Backend " skills={skills.backend} />
+                    <SkillSection title="Bases de Datos" skills={skills.basesData} />
+                    <SkillSection title="DevOps" skills={skills.devops} />
+                    <SkillSection title="Hardware y Microcontroladores" skills={skills.hardware} />
+                    <SkillSection title="Herramientas" skills={skills.tools} />
+                </section>
+            </div>
         </main>
+        <footer class="w-full max-w-4xl my-10 text-white">
+            <p>
+                <span>🤝</span> Francisco Romero
+            </p>
+        </footer>
     </body>
 </html>
