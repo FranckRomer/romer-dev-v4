@@ -24,7 +24,7 @@ const { name, icon, color, delay = 0 } = Astro.props;
             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
         />
         <!-- Fallback si la imagen no carga -->
-        <div class="w-full h-full bg-gray-600 rounded flex items-center justify-center text-white text-xs font-bold hidden">
+        <div class="w-full h-full bg-gray-600 rounded  items-center justify-center text-white text-xs font-bold hidden">
             {name.charAt(0).toUpperCase()}
         </div>
     </div>

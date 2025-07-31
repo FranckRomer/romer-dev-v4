@@ -1,64 +1,129 @@
 ---
 import "../styles/global.css";
 import Dock from "../components/Dock.astro";
-import Header from "../components/Header.astro";
+// import Header from "../components/Header.astro";
 // import SeguidorMouse from "../canvas/SeguidorMouse.astro";
 import LineasInfinitas from "../canvas/LineasInfinitas.astro";
+import SEO from "../components/SEO.astro";
 ---
 
 <html lang="es">
 	<head>
+		<SEO
+			title="Romer-Dev"
+			description="Francisco Romero - Desarrollador web full-stack e ingeniero IoT. Especializado en React, Node.js, Python y desarrollo de sistemas embebidos. Más de 3 años de experiencia creando soluciones digitales innovadoras."
+			keywords="desarrollador web, programador, ingeniero IoT, Francisco Romero, Romer Dev, React, Node.js, Python, desarrollo frontend, desarrollo backend, IoT, freelancer"
+			url="https://romer-dev.com"
+		/>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Romer-Dev</title>
+		<title>
+			Romer Dev - Francisco Romero | Desarrollador Web & Ingeniero IoT
+		</title>
 	</head>
-	<body class="bg-black w-screen h-screen ">
+	<body class="bg-black w-screen h-screen">
 		<Dock site="Inicio" />
 		<!-- <SeguidorMouse /> -->
 		<LineasInfinitas />
 		<!-- <Header /> -->
-		<main class="flex justify-center items-center md:max-w-screen-md max-w-screen-sm min-h-screen m-auto ">
-			<section class="border border-gray-800 rounded-lg bg-blur-2xl backdrop-blur-xl md:p-16 p-8 z-10 md:mb-24 mb-32">
+		<main
+			class="flex justify-center items-center md:max-w-screen-md max-w-screen-sm min-h-screen m-auto"
+		>
+			<section
+				class="border border-gray-800 rounded-lg bg-blur-2xl backdrop-blur-xl md:p-16 p-8 z-10 md:mb-24 mb-32"
+			>
 				<div>
-					<span class="text-white text-xl">
-						Hola 🖖, soy
-					</span>
+					<span class="text-white text-xl"> Hola 🖖, soy </span>
 				</div>
-				<div class="flex flex-col justify-center ">
+				<div class="flex flex-col justify-center">
 					<!-- <span>soy</span> -->
-					<h1 class="text-4xl font-bold py-4 text-red-400">Francisco Romero</h1>
+					<h1 class="text-4xl font-bold py-4 text-red-400">
+						Francisco Romero
+					</h1>
 				</div>
-				<span class="text-white text-xl ">
+				<span class="text-white text-xl">
 					Desarrollador web, programador y Ing. en IOT.
 				</span>
 				<span class="text-white text-xl">
 					Con 5 años de experiencia en desarrollo.
 				</span>
 				<!--descarga CV -->
-				<a class="flex justify-center items-center md:my-8 my-4 animate-bounce hover:animate-none hover:scale-110 transition-all duration-300" href="/Francisco Romero CV.pdf">
-					<div class="flex items-center border-b border-gray-100 pb-2">
-						<img src="/pdf.png" alt="Descargar CV" class="w-10 h-10" />
+				<a
+					class="flex justify-center items-center md:my-8 my-4 animate-bounce hover:animate-none hover:scale-110 transition-all duration-300"
+					href="/Francisco Romero CV.pdf"
+				>
+					<div
+						class="flex items-center border-b border-gray-100 pb-2"
+					>
+						<img
+							src="/pdf.png"
+							alt="Descargar CV"
+							class="w-10 h-10"
+						/>
 						<span class="text-white text-xl">Descargar CV</span>
 					</div>
 				</a>
-				<div class="flex justify-center items-center md:my-8 my-8 md:gap-16 gap-8">
-					<a href="https://github.com/FranckRomer" class="flex flex-col justify-center items-center hover:scale-110 transition-all duration-300 hover:text-blue-500">
-						<img src="/social/github.png" alt="GitHub" class="w-10 h-10" />
+				<div
+					class="flex justify-center items-center md:my-8 my-8 md:gap-16 gap-8"
+				>
+					<a
+						href="https://github.com/FranckRomer"
+						class="flex flex-col justify-center items-center hover:scale-110 transition-all duration-300 hover:text-blue-500"
+					>
+						<img
+							src="/social/github.png"
+							alt="GitHub"
+							class="w-10 h-10"
+						/>
 						<span class="text-white text-xl">GitHub</span>
 					</a>
-					<a href="https://www.linkedin.com/in/franckromer" class="flex flex-col justify-center items-center hover:animate-none hover:scale-110 transition-all duration-300">
-						<img src="/social/linkedin.png" alt="LinkedIn" class="w-10 h-10" />
+					<a
+						href="https://www.linkedin.com/in/franckromer"
+						class="flex flex-col justify-center items-center hover:animate-none hover:scale-110 transition-all duration-300"
+					>
+						<img
+							src="/social/linkedin.png"
+							alt="LinkedIn"
+							class="w-10 h-10"
+						/>
 						<span class="text-white text-xl">LinkedIn</span>
 					</a>
 
-					<a href="https://wa.me/2211160885?text=Hola%20Romer%20Dev,%20me%20gustaría%20contactarte%20sobre%20mi%20proyecto" class="flex flex-col justify-center items-center hover:animate-none hover:scale-110 transition-all duration-300">
-						<img src="/social/whatsapp.png" alt="Whatsapp" class="w-10 h-10" />
+					<a
+						href="https://wa.me/2211160885?text=Hola%20Romer%20Dev,%20me%20gustaría%20contactarte%20sobre%20mi%20proyecto"
+						class="flex flex-col justify-center items-center hover:animate-none hover:scale-110 transition-all duration-300"
+					>
+						<img
+							src="/social/whatsapp.png"
+							alt="Whatsapp"
+							class="w-10 h-10"
+						/>
 						<span class="text-white text-xl">Whatsapp</span>
 					</a>
 				</div>
 			</section>
 		</main>
+		<!-- <section class="mt-16 text-center text-gray-300 max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-cyan-400 mb-6">
+				Desarrollador Web & Ingeniero IoT
+			</h2>
+			<p class="text-lg mb-4">
+				Especializado en desarrollo web full-stack con React, Node.js y
+				Python. Más de 3 años de experiencia en creación de aplicaciones
+				web, APIs y sistemas IoT.
+			</p>
+			<p class="text-lg mb-4">
+				Experto en desarrollo frontend con React, TypeScript y Tailwind
+				CSS. Desarrollo backend con Node.js, Express y bases de datos
+				SQL/NoSQL.
+			</p>
+			<p class="text-lg">
+				Ingeniero IoT con experiencia en microcontroladores, sensores y
+				automatización. Proyectos de domótica, web scraping y desarrollo
+				de hardware.
+			</p>
+		</section> -->
 	</body>
 </html>

@@ -1,0 +1,21 @@
+{
+    "name": "Romer Dev - Francisco Romero",
+    "short_name": "Romer Dev",
+    "description": "Desarrollador web full-stack e ingeniero IoT",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#000000",
+    "theme_color": "#00ffff",
+    "icons": [
+        {
+            "src": "/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
