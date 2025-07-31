@@ -220,17 +220,17 @@ export const skills = {
             color: "text-white"
         },
         // ionos
-        {
-            name: "Ionos",
-            icon: "/skills/ionos.png",
-            color: "text-white"
-        },
-        // vps
-        {
-            name: "VPS",
-            icon: "/skills/vps.png",
-            color: "text-white"
-        },
+        // {
+        //     name: "Ionos",
+        //     icon: "/skills/ionos.png",
+        //     color: "text-white"
+        // },
+        // // vps
+        // {
+        //     name: "VPS",
+        //     icon: "/skills/vps.png",
+        //     color: "text-white"
+        // },
         
         
         
