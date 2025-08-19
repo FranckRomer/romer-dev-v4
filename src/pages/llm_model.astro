@@ -1,0 +1,28 @@
+--- 
+import "../styles/global.css";
+import Dock from "../components/Dock.astro";
+import SEO from "../components/SEO.astro";
+import ChatLLM from "../components/ChatLLM.jsx";
+---
+
+<html lang="es">
+	<head>
+		<SEO
+			title="Asistente IA - Romer-Dev"
+			description="Asistente de IA personalizado de Francisco Romero. Pregunta sobre mi experiencia, proyectos y habilidades de desarrollo."
+			keywords="asistente IA, chatbot, Francisco Romero, Romer Dev, consultas, desarrollo web, IoT"
+			url="https://romer-dev.com/llm_model"
+		/>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Asistente IA - Romer Dev</title>
+	</head>
+	<body class="bg-black w-screen h-screen">
+		<Dock site="Asistente IA" />
+		<main class="flex flex-col items-center justify-center min-h-screen py-20 px-4">
+			<ChatLLM client:load />
+		</main>
+	</body>
+</html>
