@@ -5,5 +5,8 @@ export default defineConfig({
     host: true,
     allowedHosts: ['romer-dev.com', 'www.romer-dev.com'],
     port: 3000
+  },
+  server: {
+    allowedHosts: ['romer-dev.com']
   }
 });
