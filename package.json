@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview --host 0.0.0.0 --port 3000",
+    "start": "serve -s dist -l 3000",
     "astro": "astro",
     "dev:network": "astro dev --host 0.0.0.0 --port 4321"
   },
@@ -16,6 +17,7 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-icons": "^5.5.0",
+    "serve": "^14.2.5",
     "tailwindcss": "^4.1.11",
     "three": "^0.178.0"
   },
