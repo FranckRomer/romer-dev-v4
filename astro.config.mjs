@@ -8,11 +8,13 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     server: {
-      allowedHosts: ['romer-dev.com']
+      // Permitir cualquier host (útil detrás de proxy / Dockploy)
+      allowedHosts: true
     },
     preview: {
       host: true,
-      allowedHosts: ['romer-dev.com', 'www.romer-dev.com'],
+      // Permitir cualquier host también en preview
+      allowedHosts: true,
       port: 3000
     }
   },
